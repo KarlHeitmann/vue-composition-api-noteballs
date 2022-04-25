@@ -30,8 +30,8 @@
       v-for="note in storeNotes.notes"
       :key="note.id"
       :note="note"
-      @deleteClicked="deleteNote"
     />
+      <!-- YA NO SE OCUPA, ESTO IBA DEBAJITO DE :note="note": @deleteClicked="deleteNote" -->
   </div>
 </template>
 
@@ -59,13 +59,5 @@
     newNote.value = ""
     newNoteRef.value.focus()
   }
-/*
-  delete note
-*/
-  const deleteNote = idToDelete => {
-    console.log('deleteNote', idToDelete)
-    notes.value = notes.value.filter(note => {
-      return note.id !== idToDelete
-    })
-  }
+
 </script>
