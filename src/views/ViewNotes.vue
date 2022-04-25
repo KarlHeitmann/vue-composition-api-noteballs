@@ -22,12 +22,13 @@
     </div>
 
     <div
-      v-for="i in 3"
+      v-for="note in notes"
+      :key="note.id"
       class="card mb-4"
       >
       <div class="card-content">
         <div class="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sunt laboriosam repellat voluptas assumenda dolorem velit, suscipit sint voluptatem. Perferendis minima deleniti doloremque eius blanditiis eligendi iste nihil possimus illum!
+          {{ note.content }}
         </div>
       </div>
       <footer class="card-footer">
@@ -37,3 +38,24 @@
     </div>
   </div>
 </template>
+
+<script setup>
+/*
+  imports
+*/
+import { ref } from 'vue';
+
+/*
+  notes
+*/
+  const notes = ref([
+    {
+      id: 'id1',
+      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sunt laboriosam repellat voluptas assumenda dolorem velit, suscipit sint voluptatem. Perferendis minima deleniti doloremque eius blanditiis eligendi iste nihil possimus illum!'
+    },
+    {
+      id: 'id2',
+      content: 'This is a shorter note! Woo!'
+    },
+  ])
+</script>
