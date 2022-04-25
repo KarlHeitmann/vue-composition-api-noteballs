@@ -55,15 +55,7 @@
   const newNoteRef = ref(null)
 
   const addNote = () => {
-    let currentDate = new Date().getTime(),
-        id = currentDate.toString() // NOTA: se puede usar tambien una libreria como uuidv4 para generar ids unicos
-
-    let note = {
-      id,
-      content: newNote.value,
-    }
-
-    notes.value.unshift(note)
+    storeNotes.addNote(newNote.value)
     newNote.value = ""
     newNoteRef.value.focus()
   }

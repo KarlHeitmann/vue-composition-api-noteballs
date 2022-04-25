@@ -16,6 +16,17 @@ export const useStoreNotes = defineStore('storeNotes', {
     }
   },
   actions: {
+    addNote(newNoteContent) {
+      console.log('addNote', newNoteContent)
+      let currentDate = new Date().getTime(),
+          id = currentDate.toString() // NOTA: se puede usar tambien una libreria como uuidv4 para generar ids unicos
 
+      let note = {
+        id,
+        content: newNoteContent,
+      }
+
+      this.notes.unshift(note)
+    }
   },
 })
