@@ -11,24 +11,25 @@
         <button
           @click="$router.back()"
           to="/"
-          class="button is-link is-light"
+          class="button is-link is-light mr-2"
           >
           Cancel
         </button>
         <button
           @click="$router.push('/')"
           to="/"
-          class="button is-link is-light"
+          class="button is-link is-light mr-2"
           >
           Cancel
         </button>
         <RouterLink
           to="/"
-          class="button is-link is-light"
+          class="button is-link is-light mr-2"
           >
           Cancel
         </RouterLink>
         <button
+        @click="handleSaveClicked"
           class="button is-link has-background-success"
           :disabled="!noteContent"
           >
@@ -65,8 +66,20 @@
 */
 
   const noteContent = ref('')
-  console.log(route.params.id)
+  
   noteContent.value = storeNotes.getNoteContent(route.params.id)
 
+/*
+  save clicked
+*/
+
+  const handleSaveClicked = () => {
+    console.log("Clicked")
+    let payload = {
+      id: route.params.id,
+      content: noteContent.value
+    }
+    storeNotes.updateNote(route.params.id, noteContent.value)
+  }
 
 </script>
