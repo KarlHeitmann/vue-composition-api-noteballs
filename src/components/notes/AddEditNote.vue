@@ -41,6 +41,7 @@
 */
 
   import { ref } from "vue";
+  import { vAutofocus } from "@/directives/vAutofocus";
 
 /*
   props
@@ -84,12 +85,14 @@
   })
 /**
  * directives
+ * XXX Esto queda aqui para mostrar como se ve una directiva local
  */
-
+/*
   const vAutofocus = {
     mounted: (el) => {
       el.focus()
     }
   }
+  */
 
 </script>
