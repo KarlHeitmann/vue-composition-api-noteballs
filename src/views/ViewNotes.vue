@@ -29,10 +29,12 @@
 /*
   imports
 */
-  import { ref, watch } from 'vue';
+  import { ref } from 'vue';
+  // import { ref, watch } from 'vue'; // XXX Usar este y descomentar abajo para habilitar el watch local
   import { useStoreNotes } from "@/stores/storeNotes";
   import AddEditNote from '@/components/Notes/AddEditNote.vue'
   import Note from '@/components/Notes/Note.vue'
+  import { useWatchCharacters } from '@/use/useWatchCharacters'
 
 /*
   store
@@ -53,8 +55,9 @@
 
 /**
  * watches
- */
-
+ * XXX Esto es con watch local
+ */ 
+/*
   watch(newNote, (newValue, oldValue) => {
     console.log("newValue", newValue)
     console.log("oldValue", oldValue)
@@ -62,5 +65,7 @@
       alert('Only 100 characters allowed gosh darnit!')
     }
   })
+  */
+  useWatchCharacters(newNote)
 
 </script>
