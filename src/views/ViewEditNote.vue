@@ -66,7 +66,7 @@
 
   const noteContent = ref('')
   console.log(route.params.id)
-  noteContent.value = storeNotes.getNoteContent
+  noteContent.value = storeNotes.getNoteContent(route.params.id)
 
 
 </script>

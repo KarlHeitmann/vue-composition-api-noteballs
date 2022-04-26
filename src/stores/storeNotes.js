@@ -36,8 +36,11 @@ export const useStoreNotes = defineStore('storeNotes', {
     }
   },
   getters: {
-    getNoteContent: (state) => {
-      return state.notes[0].content
+    getNoteContent: (state) => { // XXX getNoteContent a priori NO ES UNA FUNCION, si quiero que interactue, debo hacer que _devuelva_ una funcion
+      // return (id) => {
+      //   state.notes.find(n => n.id == id).content 
+      // }
+      return (id) => state.notes.find(n => n.id == id).content 
     }
   }
 })
