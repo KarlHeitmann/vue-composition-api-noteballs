@@ -29,7 +29,7 @@
 /*
   imports
 */
-  import { ref } from 'vue';
+  import { ref, watch } from 'vue';
   import { useStoreNotes } from "@/stores/storeNotes";
   import AddEditNote from '@/components/Notes/AddEditNote.vue'
   import Note from '@/components/Notes/Note.vue'
@@ -50,5 +50,17 @@
     newNote.value = ""
     addEditNoteRef.value.focusTextarea()
   }
+
+/**
+ * watches
+ */
+
+  watch(newNote, (newValue, oldValue) => {
+    console.log("newValue", newValue)
+    console.log("oldValue", oldValue)
+    if (newValue.length === 100) {
+      alert('Only 100 characters allowed gosh darnit!')
+    }
+  })
 
 </script>
